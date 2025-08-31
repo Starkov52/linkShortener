@@ -4,19 +4,18 @@ import type { IPResponse } from "../types";
 import axios from "axios";
 import { urlAPI } from "../config";
 import { getOSName } from "../utils/getOSName";
+import { getOriginalURL } from "../services/link/getOriginalURL";
+import { addUserToUrl } from "../services/link/addUserToLink";
 export async function transitionLink(request: Request, response: Response) {
      const linkId: string | undefined = request.params.linkId;
      const userAgent: string | undefined = request.headers["user-agent"];
      if (!linkId) return response.json("Отсутсвует параметр 'linkId'");
-     const shortLink: string = "https://linkShortener/" + linkId;
+     const shortLink: string = "http://localhost:3000/shortLink/" + linkId;
      try {
-          const linkInfo: any = await prisma.shortLink.findUnique({
-               where: { shortUrl: shortLink },
-          });
+          const linkInfo: any = await getOriginalURL(shortLink);
           if (!linkInfo) {
                return response.json({ message: "Ссылка не обнаружена" });
           }
-          // aaaaaaaaaaa
           const responseData: IPResponse = (await axios.get(urlAPI)).data;
           const browserMatch = userAgent?.match(/(Firefox|Edge|Chrome|Safari)[\/ ]([\d.])/) || [];
           const userInfo = {
@@ -27,7 +26,7 @@ export async function transitionLink(request: Request, response: Response) {
                os: getOSName(userAgent as string),
           };
           const originanLink: string = linkInfo.originalUrl;
-          const a = 1 + 1;
+          addUserToUrl(originanLink, shortLink, userInfo);
           response.redirect(originanLink);
      } catch (error: any) {
           console.error(error.message);

@@ -4,6 +4,7 @@ import axios from "axios";
 import { IPResponse } from "../types";
 import { getOSName } from "../utils/getOSName";
 import { prisma } from "../services/db";
+import { createLink } from "../services/link/createLink";
 export async function cutLink(request: Request, response: Response) {
      const originalURL: string = request.body.url;
      const userAgent: string | undefined = request.headers["user-agent"];
@@ -21,24 +22,8 @@ export async function cutLink(request: Request, response: Response) {
                browser: browserMatch[0]?.toString(),
                os: getOSName(userAgent as string),
           };
-          const newLinkURL: string = `https://linkShortener/${Math.floor(Math.random() * 100000).toString()}`;
-          await prisma.shortLink.create({
-               data: {
-                    originalUrl: originalURL,
-                    shortUrl: newLinkURL,
-                    users: {
-                         create: [
-                              {
-                                   date: userInfo.date,
-                                   ip: userInfo.ip,
-                                   region: userInfo.region,
-                                   browser: userInfo.browser ?? null,
-                                   os: userInfo.os,
-                              },
-                         ],
-                    },
-               },
-          });
+          const newLinkURL: string = `http://localhost:3000/shortLink/${Math.floor(Math.random() * 100000).toString()}`;
+          createLink(originalURL, newLinkURL);
           response.json(newLinkURL);
      } catch (error: any) {
           console.error(error.message);
