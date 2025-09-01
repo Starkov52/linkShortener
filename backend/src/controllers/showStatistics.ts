@@ -1,17 +1,19 @@
 import { Response, Request } from "express";
-import { prisma } from "../services/db";
 import { getLinkStatistic } from "../services/link/getLinkStatistics";
+import { ShortLinkType } from "../types";
 export async function showStatistics(request: Request, response: Response) {
-     const linkId: string | undefined = request.params.linkId;
-     if (!linkId) return response.json("Отсутсвует параметр 'linkId'");
-     const shortLink: string = "http://localhost:3000/shortLink/" + linkId;
-     try {
-          const linkInfo: any = await getLinkStatistic(shortLink);
-          if (!linkInfo) {
-               return response.json({ message: "Ссылка не обнаружена" });
-          }
-          response.json(linkInfo);
-     } catch (error: any) {
-          console.error(error.message);
-     }
+    const linkId: string | undefined = request.params.linkId;
+    if (!linkId) return response.json("Отсутсвует параметр 'linkId'");
+    const shortLink: string = "http://localhost:3000/shortLink/" + linkId;
+    try {
+        const linkStatistics: ShortLinkType | null = await getLinkStatistic(shortLink);
+        if (!linkStatistics) {
+            return response.json({ message: "Ссылка не обнаружена" });
+        }
+        console.log(linkStatistics);
+        response.json(linkStatistics);
+    } catch (error: any) {
+        console.error(error.message);
+        return response.status(500).json({ error: "ошибка сервера" });
+    }
 }
