@@ -1,0 +1,43 @@
+.linkInfo {
+     background: #f9f9f9;
+     border: 1px solid #ddd;
+     border-radius: 12px;
+     padding: 16px;
+
+     width: 86%;
+     align-self: flex-start;
+     margin-left: 40px;
+
+     &__list {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+     }
+
+     &__item {
+          display: flex;
+          align-items: center;
+          padding: 8px 0;
+          border-bottom: 1px solid #eee;
+
+          &:last-child {
+               border-bottom: none;
+          }
+     }
+
+     &__icon {
+          font-size: 18px;
+          margin-right: 8px;
+          color: #555;
+     }
+
+     &__label {
+          font-weight: 600;
+          margin-right: 6px;
+          color: #333;
+     }
+
+     &__value {
+          color: #666;
+     }
+}

@@ -1,5 +1,14 @@
-@import "_reset.scss";
+@use "_reset.scss";
+@use "_userLinks.scss";
+@use "_generateLink.scss";
+@use "_aside.scss";
+@use "_resultLink.scss";
+@use "_linkInfo.scss";
 body {
-    background-color: aquamarine;
-
+     background-color: rgb(222, 222, 222);
+}
+.wrapper {
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-start;
 }

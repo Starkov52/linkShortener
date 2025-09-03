@@ -1,0 +1,67 @@
+.aside {
+     width: 14vw;
+     height: 100vh;
+     background-color: aliceblue;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     overflow: hidden;
+     &__createBtn {
+          width: 12vw;
+          height: 5vh;
+          margin-top: 10px;
+          border-radius: 7px;
+          background-color: rgb(138, 206, 245);
+          border: none;
+          transition: all 0.5s ease;
+          color: aliceblue;
+          font-size: 20px;
+          font-weight: 700;
+     }
+     &__createBtn:hover {
+          background-color: rgb(0, 131, 206);
+     }
+     &__createBtn:active {
+          background-color: rgb(224, 224, 224);
+     }
+
+     &__sections {
+          margin-top: 30px;
+
+          &GenerateLink {
+               width: 100%;
+               display: flex;
+               flex-direction: row;
+               justify-content: flex-start;
+               gap: 5px;
+
+               &Icon {
+                    align-self: flex-start;
+               }
+               &Text {
+                    font-weight: 700;
+                    font-size: 15px;
+                    text-decoration: none;
+                    color: #000;
+               }
+          }
+
+          &AllLinks {
+               width: 100%;
+               display: flex;
+               flex-direction: row;
+               justify-content: center;
+               gap: 5px;
+
+               &Icon {
+                    align-self: flex-start;
+               }
+               &Text {
+                    font-weight: 600;
+                    font-size: 15px;
+                    text-decoration: none;
+                    color: #000;
+               }
+          }
+     }
+}

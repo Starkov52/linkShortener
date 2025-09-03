@@ -3,28 +3,45 @@ import { FaLink } from "react-icons/fa6";
 import { RiAiGenerate } from "react-icons/ri";
 import { Button } from "@mui/material";
 import { TbBrandLinkedinFilled } from "react-icons/tb";
+import { Link } from "react-router-dom";
 type AsideType = {};
 const Aside: React.FC<AsideType> = () => {
      return (
           <aside className="aside">
                <TbBrandLinkedinFilled size={50} color="orange"></TbBrandLinkedinFilled>
-               <button className="aside__createBtn"></button>
+               <Link to="/">
+                    <button className="aside__createBtn">Создать ссылку</button>
+               </Link>
                <div className="aside__sections">
-                    <Button className="aside__sectionsGenerateLink">
+                    <Button
+                         sx={{
+                              justifyContent: "flex-start"
+                         }}
+                         className="aside__sectionsGenerateLink"
+                    >
                          <RiAiGenerate
                               size={30}
                               color="black"
                               className="aside__sectionsGenerateLinkIcon"
                          ></RiAiGenerate>
-                         <p className="aside__sectionsGenerateLinkText">Создать ссылку</p>
+                         <Link to="/" className="aside__sectionsGenerateLinkText">
+                              Создать ссылку
+                         </Link>
                     </Button>
-                    <Button className="aside__sectionsAllLinks">
+                    <Button
+                         sx={{
+                              justifyContent: "flex-start"
+                         }}
+                         className="aside__sectionsAllLinks"
+                    >
                          <FaLink
                               size={30}
                               color="black"
                               className="aside__sectionsAllLinksIcon"
                          ></FaLink>
-                         <p className="aside__sectionsAllLinksText">Мои ссылки</p>
+                         <Link to="/userLinks" className="aside__sectionsAllLinksText">
+                              Мои ссылки
+                         </Link>
                     </Button>
                </div>
           </aside>
