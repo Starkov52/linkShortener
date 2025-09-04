@@ -4,15 +4,34 @@ import { FaCircleInfo } from "react-icons/fa6";
 import { IoMdArrowDropupCircle } from "react-icons/io";
 import { MdOutlineArrowDropDownCircle } from "react-icons/md";
 import LinkInfo from "./linkInfo";
+import { useRef } from "react";
+import { getStatistics } from "../utils/getStatistics";
+import type { UserInfo } from "../type";
 type resultLinkItemType = {
      originalUrl: string;
      shortUrl: string;
 };
 const ResultLinkItem: React.FC<resultLinkItemType> = ({ originalUrl, shortUrl }) => {
      const [isInfoOpen, setIsInfoOpen] = React.useState<boolean>(false);
+     const linkRef = useRef<HTMLButtonElement | null>(null);
      const linkId: string = shortUrl.slice(shortUrl.length - 5, shortUrl.length);
      const handleCopyNewLink = (shortUrl: string) => {
           navigator.clipboard.writeText(shortUrl);
+          if (!linkRef.current) {
+               return;
+          }
+
+          linkRef.current.style.background = "gray";
+          linkRef.current.style.fontSize = "13.2px";
+          linkRef.current.textContent = "СКОПИРОВАНО";
+          setTimeout(() => {
+               if (!linkRef.current) {
+                    return;
+               }
+               linkRef.current.style.background = "orange";
+               linkRef.current.textContent = "КОПИРОВАТЬ";
+               linkRef.current.style.fontSize = "15px";
+          }, 5000);
      };
      const [linkData, setLinkData] = React.useState<
           {
@@ -20,31 +39,17 @@ const ResultLinkItem: React.FC<resultLinkItemType> = ({ originalUrl, shortUrl })
                region: string;
                browser: string;
                browserVersion: string;
-               osName: string;
+               os: string;
           }[]
      >();
-     const handleOpenLinkInfo = () => {
+     const handleOpenLinkInfo = async () => {
+          const data: UserInfo[] | [] = await getStatistics(linkId);
+          if (!data) {
+               return;
+          }
+          setLinkData([...data]);
+          console.log(data);
           setIsInfoOpen((prev: boolean) => !prev);
-          (async () => {
-               if (isInfoOpen) {
-                    try {
-                         const response = await fetch(
-                              `http://localhost:3000/shortLink/statistics/${linkId}`,
-                              {
-                                   headers: {
-                                        "Content-Type": "application/json"
-                                   },
-                                   method: "GET"
-                              }
-                         );
-                         const data = await response.json();
-                         console.log();
-                         setLinkData([...data.users]);
-                    } catch (error) {
-                         console.error(error);
-                    }
-               }
-          })();
      };
 
      return (
@@ -77,6 +82,7 @@ const ResultLinkItem: React.FC<resultLinkItemType> = ({ originalUrl, shortUrl })
                          </div>
                     </Button>
                     <Button
+                         ref={linkRef}
                          onClick={() => handleCopyNewLink(shortUrl)}
                          sx={{
                               background: "orange",

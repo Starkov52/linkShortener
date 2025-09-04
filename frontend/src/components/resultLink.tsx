@@ -1,6 +1,6 @@
 import React from "react";
 import ResultLinkItem from "./resultLinkItem";
-import type { ShortedLink } from "../state/userSlice";
+import type { ShortedLink } from "../type/index";
 type resultLinkType = {
      type: "CREATE" | "USERLINKS";
      links: ShortedLink[];

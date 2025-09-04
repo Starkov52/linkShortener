@@ -1,14 +1,10 @@
 import React from "react";
 import type { RootDispatch } from "../state/store";
-type GenerateLinkInputType = {
-     inputValue: string;
-     setInputValue: React.Dispatch<React.SetStateAction<string>>;
-     setShortUrl: React.Dispatch<React.SetStateAction<string>>;
-};
 import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { addNewShortedLink } from "../state/userSlice";
-
+import type { GenerateLinkInputType } from "../type";
+import { createLink } from "../utils/createLink";
 const GenerateLinkInput: React.FC<GenerateLinkInputType> = ({
      inputValue,
      setInputValue,
@@ -22,25 +18,14 @@ const GenerateLinkInput: React.FC<GenerateLinkInputType> = ({
           setInputValue(value);
      };
      const handleGenerateLink = async () => {
-          try {
-               if (!inputValue.startsWith("http") || !inputValue.startsWith("https")) {
-                    setInputError(true);
-                    return;
-               }
-               const response: any = await fetch("http://localhost:3000/shortLink/send", {
-                    headers: {
-                         "Content-Type": "application/json"
-                    },
-                    method: "POST",
-                    body: JSON.stringify({ url: inputValue })
-               });
-               const data = await response.json();
-               setShortUrl(data);
-               setInputError(false);
-               dispatch(addNewShortedLink({ link: { shortLink: data, originalUrl: inputValue } }));
-          } catch (error: any) {
-               console.error(error.message);
+          if (!inputValue.startsWith("http") || !inputValue.startsWith("https")) {
+               setInputError(true);
+               return;
           }
+          const data: any = await createLink(inputValue);
+          setShortUrl(data);
+          setInputError(false);
+          dispatch(addNewShortedLink({ link: { shortLink: data, originalUrl: inputValue } }));
      };
      return (
           <div className="generateLink__inputSection">

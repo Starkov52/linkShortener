@@ -1,12 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import type { User, ShortedLink } from "../type";
 
-export type ShortedLink = {
-     shortLink: string;
-     originalUrl: string;
-};
-type User = {
-     userLinks: ShortedLink[];
-};
 const user: User = {
      userLinks: []
 };

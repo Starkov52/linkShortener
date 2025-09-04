@@ -1,11 +1,10 @@
-import React from "react";
 import { FaLink } from "react-icons/fa6";
 import { RiAiGenerate } from "react-icons/ri";
 import { Button } from "@mui/material";
 import { TbBrandLinkedinFilled } from "react-icons/tb";
 import { Link } from "react-router-dom";
-type AsideType = {};
-const Aside: React.FC<AsideType> = () => {
+
+const Aside = () => {
      return (
           <aside className="aside">
                <TbBrandLinkedinFilled size={50} color="orange"></TbBrandLinkedinFilled>

@@ -1,0 +1,291 @@
+@media (max-width: 1400px) {
+     .generateLink {
+          width: 50vw;
+          margin-left: 30vw;
+
+          &__title {
+               font-size: 32px;
+          }
+
+          &__inputSection {
+               &Inner {
+                    width: 85%;
+               }
+          }
+     }
+
+     .linkInfo {
+          width: 90%;
+          margin-left: 20px;
+     }
+
+     .aside {
+          width: 16vw;
+          &__createBtn {
+               width: 10vw;
+               font-size: 18px;
+          }
+     }
+
+     .userLinks {
+          width: 65vw;
+          margin-left: 25vw;
+     }
+
+     .resultLink {
+          &__title {
+               font-size: 32px;
+          }
+     }
+}
+
+@media (max-width: 1024px) {
+     .generateLink {
+          width: 68vw;
+          margin-left: 22vw;
+
+          &__title {
+               font-size: 28px;
+          }
+
+          &__inputSection {
+               &Inner {
+                    width: 92%;
+                    height: 48px;
+
+                    &Input {
+                         font-size: 18px;
+                    }
+
+                    &Btn {
+                         width: 22%;
+                    }
+               }
+          }
+     }
+
+     .linkInfo {
+          width: 92%;
+          margin-left: 0;
+          padding: 14px;
+          max-height: 420px;
+     }
+
+     .aside {
+          width: 15vw;
+
+          &__createBtn {
+               width: 12vw;
+               font-size: 16px;
+          }
+
+          &__sections {
+               &GenerateLink {
+                    &Text {
+                         font-size: 13.5px;
+                    }
+               }
+               &AllLinks {
+                    &Text {
+                         font-size: 13.5px;
+                    }
+               }
+               margin-top: 18px;
+               font-size: 2px;
+          }
+     }
+
+     .userLinks {
+          width: 76vw;
+          margin-left: 18.5vw;
+     }
+
+     .resultLink {
+          &__title {
+               font-size: 30px;
+          }
+     }
+
+     .resultLinkItem {
+          width: 94%;
+          height: auto;
+     }
+}
+
+@media (max-width: 768px) {
+     .aside {
+          width: 18vw;
+
+          &__createBtn {
+               width: 90%;
+               font-size: 16px;
+          }
+
+          &__sections {
+               margin-top: 20px;
+          }
+     }
+
+     .generateLink {
+          width: 65vw;
+          margin-left: 16vw;
+
+          &__title {
+               font-size: 24px;
+               text-align: center;
+               margin-left: 15vw;
+          }
+
+          &__inputSection {
+               padding: 14px;
+               flex-direction: column;
+               margin-left: 19vw;
+
+               &Inner {
+                    width: 100%;
+                    height: auto;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    &Input {
+                         font-size: 16px;
+                         border-radius: 7px;
+                         height: 35px;
+                    }
+
+                    &Btn {
+                         width: 100%;
+                         height: 44px;
+                         margin-top: 8px;
+                         border-radius: 10px;
+                    }
+               }
+          }
+     }
+
+     .linkInfo {
+          width: 100%;
+          margin-left: 0;
+          padding: 10px;
+          max-height: 350px;
+     }
+
+     .resultLink {
+          padding: 8px;
+          margin-left: 19vw;
+          width: 70vw;
+          &__title {
+               font-size: 26px;
+          }
+     }
+
+     .resultLinkItem {
+          width: 80%;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 8px;
+          height: auto;
+          padding: 8px;
+
+          &__button {
+               width: 100%;
+               min-height: 44px;
+          }
+
+          &__wrapper {
+               width: 100%;
+               justify-content: space-between;
+          }
+     }
+
+     .userLinks {
+          width: 92vw;
+          margin: 0 auto;
+     }
+}
+
+@media (max-width: 480px) {
+     .aside {
+          width: 20vw;
+          padding: 5px 5px 5px 5px;
+          &__sections {
+               &GenerateLink {
+                    &Text {
+                         font-size: 10px;
+                    }
+               }
+               &AllLinks {
+                    &Text {
+                         font-size: 10px;
+                    }
+               }
+          }
+     }
+
+     .generateLink {
+          width: 65vw;
+          margin: 10% auto 0;
+
+          &__title {
+               font-size: 20px;
+               margin-left: 15vw;
+          }
+
+          &__inputSection {
+               padding: 12px;
+
+               &Inner {
+                    width: 100%;
+                    height: auto;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+
+                    &Input {
+                         font-size: 14px;
+                         border-radius: 7px;
+                    }
+
+                    &Btn {
+                         width: 100%;
+                         height: 44px;
+                         font-size: 14px;
+                    }
+               }
+          }
+     }
+
+     .linkInfo {
+          width: 100%;
+          margin-left: 0;
+          padding: 8px;
+          max-height: 300px;
+     }
+
+     .resultLink {
+          &__title {
+               font-size: 22px;
+               text-align: center;
+          }
+     }
+
+     .resultLinkItem {
+          width: 80%;
+          padding: 6px;
+
+          &__newLink {
+               font-size: 14px;
+               word-break: break-word;
+          }
+
+          &__originalLink {
+               font-size: 13px;
+          }
+     }
+
+     .userLinks {
+          width: 89vw;
+          margin: 0 auto;
+     }
+}

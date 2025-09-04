@@ -1,26 +1,20 @@
-export interface LinkInfo {
-     originalUrl: string;
-     shortUrl: string;
-}
-export interface UserDataType {
-     date: string;
-     ip: string | null;
-     region: string | null;
-     browser: string | null;
+export type GenerateLinkInputType = {
+     inputValue: string;
+     setInputValue: React.Dispatch<React.SetStateAction<string>>;
+     setShortUrl: React.Dispatch<React.SetStateAction<string>>;
+     users?: UserInfo[];
+};
+export type UserInfo = {
+     ip: string;
+     region: string;
+     browser: string;
+     browserVersion: string;
      os: string;
-}
-export interface ShortLinkType {
-     id: number;
+};
+export type ShortedLink = {
+     shortLink: string;
      originalUrl: string;
-     shortUrl: string;
-     users: UsersDataType[];
-}
-export interface UsersDataType {
-     id: number;
-     date: string;
-     ip: string | null;
-     region: string | null;
-     browser: string | null;
-     os: string | null;
-     shortLinkId: number;
-}
+};
+export type User = {
+     userLinks: ShortedLink[];
+};

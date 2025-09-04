@@ -3,7 +3,8 @@
      border: 1px solid #ddd;
      border-radius: 12px;
      padding: 16px;
-
+     overflow-y: auto;
+     max-height: 500px;
      width: 86%;
      align-self: flex-start;
      margin-left: 40px;
@@ -12,6 +13,12 @@
           list-style: none;
           margin: 0;
           padding: 0;
+          margin-top: 20px;
+     }
+     &__user {
+          margin-top: 20px;
+
+          border-bottom: 2px dashed rgb(226, 225, 225);
      }
 
      &__item {

@@ -1,15 +1,19 @@
 .resultLink {
      width: 100%;
      background-color: rgb(255, 255, 255);
-     margin-top: 15px;
+     margin-top: 20px;
      border-radius: 10px;
      display: flex;
      flex-direction: column;
      align-items: center;
      justify-content: center;
+     align-self: center;
+     margin-left: 0vw;
      overflow: hidden;
      padding: 10px 10px 10px 10px;
      gap: 10px;
+     overflow-y: auto;
+
      &__title {
           font-size: 35px;
           font-weight: 655;
@@ -28,13 +32,14 @@
      background-color: rgb(233, 240, 240);
      padding: 5px 5px 5px 5px;
      border-radius: 10px;
-
+     position: relative;
      &__info:hover {
           background-color: rgb(95, 98, 98);
           border-radius: 50%;
      }
      &__id {
      }
+
      &__links {
           display: flex;
           align-items: flex-start;
@@ -57,6 +62,7 @@
      &__wrapper {
           display: flex;
           gap: 10px;
-          align-items: center;
+          align-items: flex-start;
+          position: fixed;
      }
 }

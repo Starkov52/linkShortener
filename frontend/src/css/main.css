@@ -131,8 +131,8 @@ table {
 
 .userLinks {
   width: 50vw;
-  margin-top: 10%;
-  margin-right: 17%;
+  margin-top: 7%;
+  margin-left: 29%;
 }
 
 .generateLink {
@@ -151,7 +151,7 @@ table {
       -ms-flex-align: center;
           align-items: center;
   margin-top: 10%;
-  margin-right: 17%;
+  margin-left: 30vw;
 }
 .generateLink__title {
   font-size: 40px;
@@ -213,6 +213,7 @@ table {
       -ms-flex-align: center;
           align-items: center;
   overflow: hidden;
+  position: fixed;
 }
 .aside__createBtn {
   width: 12vw;
@@ -288,7 +289,7 @@ table {
 .resultLink {
   width: 100%;
   background-color: rgb(255, 255, 255);
-  margin-top: 15px;
+  margin-top: 20px;
   border-radius: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -303,9 +304,13 @@ table {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-left: 0vw;
   overflow: hidden;
   padding: 10px 10px 10px 10px;
   gap: 10px;
+  overflow-y: auto;
 }
 .resultLink__title {
   font-size: 35px;
@@ -334,6 +339,7 @@ table {
   background-color: rgb(233, 240, 240);
   padding: 5px 5px 5px 5px;
   border-radius: 10px;
+  position: relative;
 }
 .resultLinkItem__info:hover {
   background-color: rgb(95, 98, 98);
@@ -371,9 +377,10 @@ table {
   display: -ms-flexbox;
   display: flex;
   gap: 10px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  position: fixed;
 }
 
 .linkInfo {
@@ -381,6 +388,8 @@ table {
   border: 1px solid #ddd;
   border-radius: 12px;
   padding: 16px;
+  overflow-y: auto;
+  max-height: 500px;
   width: 86%;
   -ms-flex-item-align: start;
       align-self: flex-start;
@@ -390,6 +399,11 @@ table {
   list-style: none;
   margin: 0;
   padding: 0;
+  margin-top: 20px;
+}
+.linkInfo__user {
+  margin-top: 20px;
+  border-bottom: 2px dashed rgb(226, 225, 225);
 }
 .linkInfo__item {
   display: -webkit-box;
@@ -418,6 +432,251 @@ table {
   color: #666;
 }
 
+@media (max-width: 1400px) {
+  .generateLink {
+    width: 50vw;
+    margin-left: 30vw;
+  }
+  .generateLink__title {
+    font-size: 32px;
+  }
+  .generateLink__inputSectionInner {
+    width: 85%;
+  }
+  .linkInfo {
+    width: 90%;
+    margin-left: 20px;
+  }
+  .aside {
+    width: 16vw;
+  }
+  .aside__createBtn {
+    width: 10vw;
+    font-size: 18px;
+  }
+  .userLinks {
+    width: 65vw;
+    margin-left: 25vw;
+  }
+  .resultLink__title {
+    font-size: 32px;
+  }
+}
+@media (max-width: 1024px) {
+  .generateLink {
+    width: 68vw;
+    margin-left: 22vw;
+  }
+  .generateLink__title {
+    font-size: 28px;
+  }
+  .generateLink__inputSectionInner {
+    width: 92%;
+    height: 48px;
+  }
+  .generateLink__inputSectionInnerInput {
+    font-size: 18px;
+  }
+  .generateLink__inputSectionInnerBtn {
+    width: 22%;
+  }
+  .linkInfo {
+    width: 92%;
+    margin-left: 0;
+    padding: 14px;
+    max-height: 420px;
+  }
+  .aside {
+    width: 15vw;
+  }
+  .aside__createBtn {
+    width: 12vw;
+    font-size: 16px;
+  }
+  .aside__sections {
+    margin-top: 18px;
+    font-size: 2px;
+  }
+  .aside__sectionsGenerateLinkText {
+    font-size: 13.5px;
+  }
+  .aside__sectionsAllLinksText {
+    font-size: 13.5px;
+  }
+  .userLinks {
+    width: 76vw;
+    margin-left: 18.5vw;
+  }
+  .resultLink__title {
+    font-size: 30px;
+  }
+  .resultLinkItem {
+    width: 94%;
+    height: auto;
+  }
+}
+@media (max-width: 768px) {
+  .aside {
+    width: 18vw;
+  }
+  .aside__createBtn {
+    width: 90%;
+    font-size: 16px;
+  }
+  .aside__sections {
+    margin-top: 20px;
+  }
+  .generateLink {
+    width: 65vw;
+    margin-left: 16vw;
+  }
+  .generateLink__title {
+    font-size: 24px;
+    text-align: center;
+    margin-left: 15vw;
+  }
+  .generateLink__inputSection {
+    padding: 14px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-left: 19vw;
+  }
+  .generateLink__inputSectionInner {
+    width: 100%;
+    height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 10px;
+  }
+  .generateLink__inputSectionInnerInput {
+    font-size: 16px;
+    border-radius: 7px;
+    height: 35px;
+  }
+  .generateLink__inputSectionInnerBtn {
+    width: 100%;
+    height: 44px;
+    margin-top: 8px;
+    border-radius: 10px;
+  }
+  .linkInfo {
+    width: 100%;
+    margin-left: 0;
+    padding: 10px;
+    max-height: 350px;
+  }
+  .resultLink {
+    padding: 8px;
+    margin-left: 19vw;
+    width: 70vw;
+  }
+  .resultLink__title {
+    font-size: 26px;
+  }
+  .resultLinkItem {
+    width: 80%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    gap: 8px;
+    height: auto;
+    padding: 8px;
+  }
+  .resultLinkItem__button {
+    width: 100%;
+    min-height: 44px;
+  }
+  .resultLinkItem__wrapper {
+    width: 100%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .userLinks {
+    width: 92vw;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 480px) {
+  .aside {
+    width: 20vw;
+    padding: 5px 5px 5px 5px;
+  }
+  .aside__sectionsGenerateLinkText {
+    font-size: 10px;
+  }
+  .aside__sectionsAllLinksText {
+    font-size: 10px;
+  }
+  .generateLink {
+    width: 65vw;
+    margin: 10% auto 0;
+  }
+  .generateLink__title {
+    font-size: 20px;
+    margin-left: 15vw;
+  }
+  .generateLink__inputSection {
+    padding: 12px;
+  }
+  .generateLink__inputSectionInner {
+    width: 100%;
+    height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 8px;
+  }
+  .generateLink__inputSectionInnerInput {
+    font-size: 14px;
+    border-radius: 7px;
+  }
+  .generateLink__inputSectionInnerBtn {
+    width: 100%;
+    height: 44px;
+    font-size: 14px;
+  }
+  .linkInfo {
+    width: 100%;
+    margin-left: 0;
+    padding: 8px;
+    max-height: 300px;
+  }
+  .resultLink__title {
+    font-size: 22px;
+    text-align: center;
+  }
+  .resultLinkItem {
+    width: 80%;
+    padding: 6px;
+  }
+  .resultLinkItem__newLink {
+    font-size: 14px;
+    word-break: break-word;
+  }
+  .resultLinkItem__originalLink {
+    font-size: 13px;
+  }
+  .userLinks {
+    width: 89vw;
+    margin: 0 auto;
+  }
+}
 body {
   background-color: rgb(222, 222, 222);
 }
